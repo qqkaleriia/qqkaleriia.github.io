@@ -2,128 +2,240 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Valeriia Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Valeriia's Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
   <style>
-    /* Общие стили */
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: #f8f9fa;
-      color: #222;
+    * {
       margin: 0;
-      padding: 0 20px 40px 20px;
-    }
-
-    /* Хедер */
-    header {
-      text-align: center;
-      margin-top: 40px;
-      margin-bottom: 40px;
-    }
-
-    .main-photo {
-      width: 150px;
-      height: 150px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 3px solid #1e40af; /* синий */
-      box-shadow: 0 4px 8px rgba(30, 64, 175, 0.3);
-      margin-bottom: 15px;
-    }
-
-    header h1 {
-      font-size: 2.5rem;
-      margin: 0 0 10px 0;
-      color: #1e40af;
-    }
-
-    header p {
-      font-size: 1rem;
-      max-width: 600px;
-      margin: 0 auto;
-      color: #444;
-    }
-
-    /* Секция с фотографиями */
-    .photo-section {
-      max-width: 800px;
-      margin: 0 auto;
-      text-align: center;
-    }
-
-    .photo-section h2 {
-      color: #1e40af;
-      margin-bottom: 20px;
-      font-size: 1.8rem;
-    }
-
-    /* Лента фотографий */
-    .photo-strip {
-      display: flex;
-      gap: 10px;
-      overflow-x: auto;
-      padding-bottom: 10px;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
       scroll-behavior: smooth;
     }
 
-    .photo-strip img {
-      height: 120px;
-      border-radius: 8px;
-      cursor: pointer;
+    body {
+      background-color: #f9f9f9;
+      color: #1a1a1a;
+      line-height: 1.6;
+    }
+
+    header {
+      padding: 1.5rem;
+      background: #ffffff;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 960px;
+      margin: auto;
+    }
+
+    .nav-links a {
+      margin-left: 1rem;
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: #0070f3;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 4rem 1rem 2rem;
+      background-color: #ffffff;
+      animation: fadeIn 1s ease-in;
+    }
+
+    .hero img {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      object-fit: cover;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      margin-bottom: 1.5rem;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      color: #000;
+    }
+
+    .hero p {
+      margin-top: 1rem;
+      font-size: 1.2rem;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+      color: #444;
+    }
+
+    section {
+      max-width: 900px;
+      margin: auto;
+      padding: 2rem 1rem;
+      animation: fadeInUp 1s ease-out;
+    }
+
+    h2 {
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+      color: #111;
+      border-left: 4px solid #0070f3;
+      padding-left: 0.5rem;
+    }
+
+    .card {
+      background-color: #fff;
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
       transition: transform 0.3s ease;
     }
 
-    .photo-strip img:hover {
-      transform: scale(1.1);
-      box-shadow: 0 4px 12px rgba(30, 64, 175, 0.4);
+    .card:hover {
+      transform: translateY(-4px);
     }
 
-    /* Кнопка */
-    #morePhotosBtn {
-      background-color: #1e40af;
-      color: white;
-      border: none;
-      padding: 12px 24px;
-      margin-top: 15px;
+    .photos-group {
+      margin-bottom: 2rem;
+    }
+
+    .photos-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1rem;
+    }
+
+    .photos-grid img {
+      width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .photos-grid img:hover {
+      transform: scale(1.03);
+    }
+
+    .instagram {
+      margin-top: 2rem;
+      text-align: center;
       font-size: 1rem;
-      border-radius: 6px;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
     }
 
-    #morePhotosBtn:hover {
-      background-color: #3b82f6;
+    .instagram a {
+      color: #0070f3;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .scroll-top {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #0070f3;
+      color: #fff;
+      border: none;
+      border-radius: 50%;
+      padding: 0.8rem 1rem;
+      font-size: 1.2rem;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      font-size: 0.9rem;
+      color: #777;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
   </style>
 </head>
 <body>
-
   <header>
-    <img src="images/IMG_20250703_202945_875.jpg" alt="Valeriia" class="main-photo" />
-    <h1>Valeriia</h1>
-    <p>Started learning HTML & CSS at 12. Living in Germany. Fluent in Russian, Ukrainian, English & German. 10 years of rhythmic gymnastics. Always improving.</p>
+    <nav>
+      <strong>qqkaleriia</strong>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#photos">Photos</a>
+      </div>
+    </nav>
   </header>
 
-  <section class="photo-section">
-    <h2>My Photos</h2>
-    <div class="photo-strip">
-      <img src="images/IMG_20240912_131244_965.jpg" alt="Photo 1" />
-      <img src="images/IMG_20240913_232417_127.jpg" alt="Photo 2" />
-      <img src="images/IMG_20241102_192650_964.jpg" alt="Photo 3" />
-      <img src="images/IMG_20250204_182703_251.jpg" alt="Photo 4" />
-      <img src="images/IMG_20250422_230150_873.jpg" alt="Photo 5" />
-      <img src="images/IMG_20250703_202945_875.jpg" alt="Photo 6" />
-    </div>
-    <button id="morePhotosBtn">Show all photos</button>
+  <section class="hero">
+    <img src="images/me.jpg" alt="Valeriia profile photo">
+    <h1>Valeriia</h1>
+    <p>Future programmer & proud gymnast. Based in Germany, dreaming big.</p>
   </section>
 
-  <script>
-    const btn = document.getElementById('morePhotosBtn');
-    btn.addEventListener('click', () => {
-      alert('Здесь можно добавить показ всех фото или переход на отдельную страницу!');
-    });
-  </script>
+  <section id="about">
+    <h2>About Me</h2>
+    <div class="card">
+      <p>
+        I'm Valeriia, but you probably know me as <strong>@qqkaleriia</strong>. I started learning HTML & CSS at 12 during the summer and fell in love with tech. Now I'm living in Germany, working hard to master both German and English (goal: C1–C2). I already speak Russian and Ukrainian fluently.
+      </p>
+      <p>
+        I did rhythmic gymnastics for 10 years, and I’m super thankful to my coaches — they gave me discipline and a passion for movement. Now I spend time with amazing friends and keep growing as a person. I've made mistakes in the past, but I’m learning, leveling up, and becoming the best version of me 💪
+      </p>
+    </div>
+  </section>
 
+  <section id="photos">
+    <h2>Photos</h2>
+
+    <div class="photos-group">
+      <h3>Friends</h3>
+      <div class="photos-grid">
+        <img src="images/friends1.jpg" alt="With friends 1">
+        <img src="images/friends2.jpg" alt="With friends 2">
+      </div>
+    </div>
+
+    <div class="photos-group">
+      <h3>Family</h3>
+      <div class="photos-grid">
+        <img src="images/family1.jpg" alt="With family">
+      </div>
+    </div>
+
+    <div class="photos-group">
+      <h3>Achievements</h3>
+      <div class="photos-grid">
+        <img src="images/achievement1.jpg" alt="Achievement 1">
+        <img src="images/achievement2.jpg" alt="Achievement 2">
+      </div>
+    </div>
+  </section>
+
+  <div class="instagram">
+    💬 Want to say something? Drop me a DM on <a href="https://instagram.com/qqkaleriia" target="_blank">Instagram</a> 💌
+  </div>
+
+  <button class="scroll-top" onclick="window.scrollTo({ top: 0, behavior: 'smooth' });">↑</button>
+
+  <footer>
+    © 2025 Valeriia — Built with 💙 and HTML/CSS
+  </footer>
 </body>
 </html>
-
