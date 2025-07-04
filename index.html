@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Valeriia's Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet" />
   <style>
     * {
       margin: 0;
@@ -23,18 +23,36 @@
     header {
       padding: 1.5rem;
       background: #ffffff;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
       position: sticky;
       top: 0;
       z-index: 10;
-    }
-
-    nav {
       display: flex;
       justify-content: space-between;
       align-items: center;
       max-width: 960px;
       margin: auto;
+    }
+
+    nav strong {
+      font-weight: 700;
+      font-size: 1.5rem;
+      color: #000;
+    }
+
+    #lang-toggle {
+      padding: 0.3rem 0.7rem;
+      font-weight: 600;
+      background: #0070f3;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    #lang-toggle:hover {
+      background-color: #005bb5;
     }
 
     .nav-links a {
@@ -54,6 +72,10 @@
       padding: 4rem 1rem 2rem;
       background-color: #ffffff;
       animation: fadeIn 1s ease-in;
+      max-width: 960px;
+      margin: auto;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
     }
 
     .hero img {
@@ -61,7 +83,7 @@
       height: 160px;
       border-radius: 50%;
       object-fit: cover;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
       margin-bottom: 1.5rem;
     }
 
@@ -81,8 +103,8 @@
 
     section {
       max-width: 900px;
-      margin: auto;
-      padding: 2rem 1rem;
+      margin: 2rem auto;
+      padding: 0 1rem;
       animation: fadeInUp 1s ease-out;
     }
 
@@ -99,7 +121,7 @@
       border-radius: 12px;
       padding: 1.5rem;
       margin-bottom: 1.5rem;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.06);
       transition: transform 0.3s ease;
     }
 
@@ -107,31 +129,13 @@
       transform: translateY(-4px);
     }
 
-    .photos-group {
-      margin-bottom: 2rem;
-    }
-
-    .photos-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1rem;
-    }
-
-    .photos-grid img {
-      width: 100%;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-      transition: transform 0.3s ease;
-    }
-
-    .photos-grid img:hover {
-      transform: scale(1.03);
-    }
-
     .instagram {
       margin-top: 2rem;
       text-align: center;
       font-size: 1rem;
+      max-width: 960px;
+      margin-left: auto;
+      margin-right: auto;
     }
 
     .instagram a {
@@ -151,7 +155,7 @@
       padding: 0.8rem 1rem;
       font-size: 1.2rem;
       cursor: pointer;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
     }
 
     footer {
@@ -159,6 +163,31 @@
       padding: 2rem 1rem;
       font-size: 0.9rem;
       color: #777;
+      max-width: 960px;
+      margin: auto;
+    }
+
+    /* Gallery styles */
+    #gallery .gallery-container {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 1rem;
+    }
+
+    #gallery .gallery-container img {
+      width: 140px;
+      height: 140px;
+      object-fit: cover;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    #gallery .gallery-container img:hover {
+      transform: scale(1.05);
     }
 
     @keyframes fadeIn {
@@ -176,15 +205,15 @@
   <header>
     <nav>
       <strong>qqkaleriia</strong>
+      <button id="lang-toggle" aria-label="Switch Language">EN/DE</button>
       <div class="nav-links">
         <a href="#about">About</a>
-        <a href="#photos">Photos</a>
       </div>
     </nav>
   </header>
 
   <section class="hero">
-    <img src="images/me.jpg" alt="Valeriia profile photo">
+    <img src="https://i.imgur.com/J6DkC8H.jpg" alt="Valeriia profile photo" />
     <h1>Valeriia</h1>
     <p>Future programmer & proud gymnast. Based in Germany, dreaming big.</p>
   </section>
@@ -201,35 +230,19 @@
     </div>
   </section>
 
-  <section id="photos">
-    <h2>Photos</h2>
-
-    <div class="photos-group">
-      <h3>Friends</h3>
-      <div class="photos-grid">
-        <img src="images/friends1.jpg" alt="With friends 1">
-        <img src="images/friends2.jpg" alt="With friends 2">
-      </div>
-    </div>
-
-    <div class="photos-group">
-      <h3>Family</h3>
-      <div class="photos-grid">
-        <img src="images/family1.jpg" alt="With family">
-      </div>
-    </div>
-
-    <div class="photos-group">
-      <h3>Achievements</h3>
-      <div class="photos-grid">
-        <img src="images/achievement1.jpg" alt="Achievement 1">
-        <img src="images/achievement2.jpg" alt="Achievement 2">
-      </div>
+  <section id="gallery">
+    <h2>Gallery</h2>
+    <div class="gallery-container">
+      <img src="friends1.jpg" alt="Friends 1" />
+      <img src="friends2.jpg" alt="Friends 2" />
+      <img src="family1.jpg" alt="Family 1" />
+      <img src="achievement1.jpg" alt="Achievement 1" />
+      <img src="achievement2.jpg" alt="Achievement 2" />
     </div>
   </section>
 
   <div class="instagram">
-    💬 Want to say something? Drop me a DM on <a href="https://instagram.com/qqkaleriia" target="_blank">Instagram</a> 💌
+    💬 Want to say something? Drop me a DM on <a href="https://instagram.com/qqkaleriia" target="_blank" rel="noopener noreferrer">Instagram</a> 💌
   </div>
 
   <button class="scroll-top" onclick="window.scrollTo({ top: 0, behavior: 'smooth' });">↑</button>
@@ -237,5 +250,41 @@
   <footer>
     © 2025 Valeriia — Built with 💙 and HTML/CSS
   </footer>
+
+  <script>
+    const langToggle = document.getElementById('lang-toggle');
+    const aboutSection = document.getElementById('about');
+    let lang = 'en';
+
+    const aboutTexts = {
+      en: `
+        <h2>About Me</h2>
+        <div class="card">
+          <p>
+            I'm Valeriia, but you probably know me as <strong>@qqkaleriia</strong>. I started learning HTML & CSS at 12 during the summer and fell in love with tech. Now I'm living in Germany, working hard to master both German and English (goal: C1–C2). I already speak Russian and Ukrainian fluently.
+          </p>
+          <p>
+            I did rhythmic gymnastics for 10 years, and I’m super thankful to my coaches — they gave me discipline and a passion for movement. Now I spend time with amazing friends and keep growing as a person. I've made mistakes in the past, but I’m learning, leveling up, and becoming the best version of me 💪
+          </p>
+        </div>
+      `,
+      de: `
+        <h2>Über mich</h2>
+        <div class="card">
+          <p>
+            Ich bin Valeriia, aber wahrscheinlich kennt ihr mich als <strong>@qqkaleriia</strong>. Ich habe mit 12 angefangen, HTML & CSS zu lernen, und mich in Technik verliebt. Jetzt lebe ich in Deutschland und arbeite hart daran, Deutsch und Englisch zu meistern (Ziel: C1–C2). Ich spreche bereits fließend Russisch und Ukrainisch.
+          </p>
+          <p>
+            Ich habe 10 Jahre Rhythmische Sportgymnastik gemacht und bin meinen Trainern sehr dankbar – sie haben mir Disziplin und Leidenschaft für Bewegung vermittelt. Jetzt verbringe ich Zeit mit großartigen Freunden und wachse als Person. Ich habe Fehler gemacht, aber lerne, entwickle mich weiter und werde die beste Version von mir 💪
+          </p>
+        </div>
+      `
+    };
+
+    langToggle.addEventListener('click', () => {
+      lang = (lang === 'en') ? 'de' : 'en';
+      aboutSection.innerHTML = aboutTexts[lang];
+    });
+  </script>
 </body>
 </html>
