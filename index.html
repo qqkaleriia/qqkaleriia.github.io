@@ -1,351 +1,210 @@
- <!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="ru">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Valeriia's Portfolio</title>
+<meta charset="UTF-8">
+<title>Valentine</title>
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
-
-  body {
-    font-family: 'Inter', sans-serif;
-    background: linear-gradient(135deg, #f0f4ff 0%, #d9e6ff 100%);
-    color: #1a1a1a;
-    margin: 0; padding: 0;
-    text-align: center;
-    overflow-x: hidden;
-  }
-
-  header {
-    background: #ffffffcc;
-    backdrop-filter: blur(10px);
-    padding: 20px 10px;
-    position: sticky;
-    top: 0;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    z-index: 1000;
-  }
-  header strong {
-    font-size: 1.8rem;
-    color: #0047b3;
-    letter-spacing: 2px;
-    cursor: default;
-  }
-  #lang-toggle {
-    cursor: pointer;
-    background: #0047b3;
-    border: none;
-    color: white;
-    padding: 0.5rem 1.2rem;
-    border-radius: 50px;
-    font-weight: 700;
-    font-size: 1rem;
-    transition: background-color 0.3s ease;
-  }
-  #lang-toggle:hover {
-    background: #002d72;
-  }
-
-  .hero {
-    margin: 50px auto 30px;
-    max-width: 420px;
-    position: relative;
-  }
-  .hero img {
-    width: 160px;
-    height: 160px;
-    border-radius: 50%;
-    object-fit: cover;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-    transition: transform 0.3s ease;
-    border: 4px solid #0047b3;
-  }
-  .hero img:hover {
-    transform: scale(1.1) rotate(5deg);
-  }
-  .hero h1 {
-    margin: 20px 0 8px;
-    font-size: 2.8rem;
-    color: #003580;
-    letter-spacing: 1.5px;
-  }
-  .hero p {
-    font-size: 1.3rem;
-    color: #0050ffcc;
-    font-weight: 600;
-    max-width: 320px;
-    margin: 0 auto;
-    animation: fadeInUp 1s ease forwards;
-    opacity: 0;
-  }
-  @keyframes fadeInUp {
-    to {
-      opacity: 1;
-      transform: translateY(0);
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #ffe6f0;
+        overflow: hidden;
     }
-    from {
-      opacity: 0;
-      transform: translateY(15px);
+
+    .container {
+        text-align: center;
     }
-  }
 
-  #about {
-    max-width: 650px;
-    margin: 40px auto;
-    padding: 0 20px;
-    text-align: left;
-    color: #222;
-    font-size: 1.15rem;
-    line-height: 1.7;
-    background: #ffffffdd;
-    border-radius: 16px;
-    box-shadow: 0 6px 15px rgba(0,0,0,0.08);
-    transition: box-shadow 0.3s ease;
-  }
-  #about:hover {
-    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-  }
-  #about strong {
-    color: #0047b3;
-  }
-  #about a {
-    color: #0050ff;
-    font-weight: 700;
-    text-decoration: none;
-  }
-  #about a:hover {
-    text-decoration: underline;
-  }
-
-  #gallery {
-    max-width: 800px;
-    margin: 50px auto;
-    padding: 0 20px;
-  }
-  #gallery h2 {
-    margin-bottom: 24px;
-    color: #0047b3;
-    font-weight: 700;
-    font-size: 2rem;
-  }
-  .gallery-grid {
-    display: flex;
-    justify-content: center;
-    gap: 24px;
-    flex-wrap: wrap;
-  }
-  .gallery-grid img {
-    width: 180px;
-    height: 120px;
-    object-fit: cover;
-    border-radius: 16px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.12);
-    cursor: pointer;
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
-  }
-  .gallery-grid img:hover {
-    transform: scale(1.1) translateY(-8px);
-    box-shadow: 0 16px 40px rgba(0,0,0,0.2);
-  }
-
-  footer {
-    margin-top: 60px;
-    padding: 30px 15px;
-    font-size: 1rem;
-    color: #444;
-    border-top: 1px solid #c5d0ff;
-    background: #f5f9ff;
-  }
-  footer a {
-    color: #0047b3;
-    text-decoration: none;
-    font-weight: 700;
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    transition: color 0.3s ease;
-  }
-  footer a:hover {
-    color: #002d72;
-    text-decoration: underline;
-  }
-
-  /* Button container */
-  .btn-container {
-    margin-top: 30px;
-    display: flex;
-    justify-content: center;
-  }
-  .btn {
-    background: #0047b3;
-    color: white;
-    border: none;
-    padding: 12px 28px;
-    font-size: 1.1rem;
-    border-radius: 50px;
-    cursor: pointer;
-    font-weight: 700;
-    box-shadow: 0 6px 12px rgba(0,71,179,0.5);
-    transition: background-color 0.3s ease, box-shadow 0.3s ease;
-    user-select: none;
-  }
-  .btn:hover {
-    background: #002d72;
-    box-shadow: 0 10px 25px rgba(0,45,114,0.7);
-  }
-
-  /* Quote section */
-  #quote {
-    max-width: 650px;
-    margin: 60px auto 40px;
-    font-style: italic;
-    font-weight: 600;
-    color: #003580cc;
-    background: #e0ebffcc;
-    padding: 20px 30px;
-    border-radius: 14px;
-    box-shadow: 0 6px 15px rgba(0,55,130,0.1);
-  }
-
-  /* Social icons */
-  .socials {
-    margin: 25px 0 0;
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-  }
-  .socials a {
-    display: inline-block;
-    width: 36px;
-    height: 36px;
-    fill: #0047b3;
-    transition: fill 0.3s ease;
-  }
-  .socials a:hover {
-    fill: #002d72;
-  }
-
-  /* Responsive */
-  @media (max-width: 600px) {
-    .gallery-grid img {
-      width: 140px;
-      height: 100px;
+    h1 {
+        font-size: 32px;
+        color: #d1005c;
     }
-    .hero h1 {
-      font-size: 2rem;
+
+    .buttons {
+        margin-top: 20px;
+        position: relative;
     }
-  }
+
+    button {
+        padding: 12px 25px;
+        font-size: 18px;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        margin: 10px;
+        transition: 0.3s;
+    }
+
+    #yesBtn {
+        background: #ff4d88;
+        color: white;
+    }
+
+    #noBtn {
+        background: #ccc;
+        position: absolute;
+    }
+
+    /* Экран после "Да" */
+    .love-screen {
+        position: fixed;
+        inset: 0;
+        background: #ffd6e0;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        text-align: center;
+        animation: fadeIn 1s ease;
+    }
+
+    /* Письмо */
+    .letter {
+        position: relative;
+        background: #fff0f5;
+        padding: 25px 20px;
+        border-radius: 15px;
+        max-width: 300px;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        font-size: 16px;
+        color: #d1005c;
+        overflow: hidden;
+    }
+
+    /* Конверт */
+    .envelope {
+        width: 80px;
+        height: 60px;
+        background: #fff;
+        border: 2px solid #d1005c;
+        border-radius: 10px;
+        margin: 0 auto 15px auto;
+        position: relative;
+        box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+    }
+
+    .envelope::before {
+        content: "";
+        position: absolute;
+        top: -20px;
+        left: 0;
+        width: 0;
+        height: 0;
+        border-left: 40px solid transparent;
+        border-right: 40px solid transparent;
+        border-bottom: 20px solid #fff;
+        border-bottom-color: #fff0f5;
+    }
+
+    .envelope-heart {
+        position: absolute;
+        top: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 18px;
+        animation: floatHeart 2s infinite alternate;
+    }
+
+    @keyframes floatHeart {
+        from { transform: translateX(-50%) translateY(0); }
+        to { transform: translateX(-50%) translateY(-10px); }
+    }
+
+    /* Сердечки */
+    .heart {
+        position: absolute;
+        color: red;
+        font-size: 20px;
+        animation: float 5s linear infinite;
+    }
+
+    @keyframes float {
+        from { transform: translateY(100vh); opacity: 1; }
+        to { transform: translateY(-10vh); opacity: 0; }
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
 </style>
 </head>
 <body>
 
-<header>
-  <strong>qqkaleriia</strong>
-  <button id="lang-toggle" aria-label="Toggle language">RU</button>
-</header>
-
-<section class="hero">
-  <img src="me.jpg" alt="Valeriia profile photo" />
-  <h1>Valeriia</h1>
-  <p id="intro-text">Future programmer & proud gymnast. Based in Germany, dreaming big.</p>
-</section>
-
-<section id="about">
-  <h2 id="about-title">About Me</h2>
-  <p id="about-text">
-    I'm Valeriia, but you probably know me as <strong><em>@qqkaleriia</em></strong>. I started learning HTML & CSS at 12 during the summer and fell in love with tech. Now I'm living in Germany, working hard to master both German and English (goal: C1–C2). I already speak Russian and Ukrainian fluently.
-  </p>
-  <p id="about-text2">
-    I did rhythmic gymnastics for 10 years, and I’m super thankful to my coaches — they gave me discipline and a passion for movement. Now I spend time with amazing friends and keep growing as a person. I've made mistakes in the past, but I’m learning, leveling up, and becoming the best version of me 💪
-  </p>
-
-  <div class="btn-container">
-  <button class="btn" onclick="window.open('https://www.instagram.com/qqkaleriia/', '_blank')">Follow Me 📸</button>
+<div class="container" id="main">
+    <h1>Ты будешь моей валентинкой? ❤️</h1>
+    <div class="buttons">
+        <button id="yesBtn">Да</button>
+        <button id="noBtn">Нет</button>
+    </div>
 </div>
-</section>
 
-<section id="gallery">
-  <h2 id="gallery-title">Gallery</h2>
-  <div class="gallery-grid">
-    <img src="friends1.jpg" alt="Friends 1" />
-    <img src="friends2.jpg" alt="Friends 2" />
-    <img src="family1.jpg" alt="Family" />
-    <img src="achievement1.jpg" alt="Achievement 1" />
-    <img src="achievement2.jpg" alt="Achievement 2" />
-  </div>
-</section>
+<div class="love-screen" id="loveScreen">
+    <div class="letter">
+        <div class="envelope">
+            <div class="envelope-heart">💌</div>
+        </div>
+        <p>
+            Привет! 🌸<br>
+            Ты сделал(а) мой день особенным! ❤️<br>
+            Скажи «Да» — и мы будем вместе радоваться каждому моменту! 💕
+        </p>
+    </div>
+</div>
 
-<section id="quote">
-  <q id="quote-text">"Discipline is the bridge between goals and accomplishment."</q><br />
-  <small id="quote-author">— Jim Rohn</small>
-</section>
-
-<footer>
-  <p id="footer-text">
-    Made with ❤️ by Valeriia. Find me on:
-  </p>
-  <div class="socials" aria-label="Social media links">
-    <a href="https://www.instagram.com/qqkaleriia/" target="_blank" rel="noopener" title="Instagram">
-      <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M7.75 2h8.5A5.75 5.75 0 0122 7.75v8.5A5.75 5.75 0 0116.25 22h-8.5A5.75 5.75 0 012 16.25v-8.5A5.75 5.75 0 017.75 2zm0 1.5a4.25 4.25 0 00-4.25 4.25v8.5a4.25 4.25 0 004.25 4.25h8.5a4.25 4.25 0 004.25-4.25v-8.5a4.25 4.25 0 00-4.25-4.25h-8.5zM12 7a5 5 0 110 10 5 5 0 010-10zm0 1.5a3.5 3.5 0 100 7 3.5 3.5 0 000-7zm4.75-.75a1.25 1.25 0 110 2.5 1.25 1.25 0 010-2.5z"/></svg>
-    </a>
-    <a href="https://github.com/qqkaleriia" target="_blank" rel="noopener" title="GitHub">
-      <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2C6.48 2 2 6.48 2 12a10 10 0 006.84 9.53c.5.1.68-.22.68-.48v-1.69c-2.78.6-3.37-1.35-3.37-1.35-.45-1.14-1.1-1.44-1.1-1.44-.9-.61.07-.6.07-.6 1 .07 1.53 1.04 1.53 1.04.89 1.52 2.33 1.08 2.9.83.09-.64.35-1.08.64-1.33-2.22-.25-4.56-1.11-4.56-4.93 0-1.09.39-1.99 1.03-2.7-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02A9.59 9.59 0 0112 7.58a9.6 9.6 0 012.5.34c1.9-1.29 2.74-1.02 2.74-1.02.56 1.38.2 2.4.1 2.65.64.71 1.03 1.6 1.03 2.7 0 3.83-2.34 4.67-4.58 4.92.36.31.68.92.68 1.85v2.74c0 .27.18.59.69.49A10 10 0 0022 12c0-5.52-4.48-10-10-10z"/></svg>
-    </a>
-  </div>
-</footer>
-
+<!-- Музыкальный плеер YouTube (скрытый) -->
+<iframe id="musicPlayer" width="0" height="0"
+    src=""
+    frameborder="0"
+    allow="autoplay; encrypted-media"
+    allowfullscreen>
+</iframe>
 
 <script>
-  // Тексты на двух языках
-  const texts = {
-    en: {
-      intro: "Future programmer & proud gymnast. Based in Germany, dreaming big.",
-      aboutTitle: "About Me",
-      aboutText1: "I'm Valeriia, but you probably know me as <strong><em>@qqkaleriia</em></strong>. I started learning HTML & CSS at 12 during the summer and fell in love with tech. Now I'm living in Germany, working hard to master both German and English (goal: C1–C2). I already speak Russian and Ukrainian fluently.",
-      aboutText2: "I did rhythmic gymnastics for 10 years, and I’m super thankful to my coaches — they gave me discipline and a passion for movement. Now I spend time with amazing friends and keep growing as a person. I've made mistakes in the past, but I’m learning, leveling up, and becoming the best version of me 💪",
-      galleryTitle: "Gallery",
-      quoteText: "\"Discipline is the bridge between goals and accomplishment.\"",
-      quoteAuthor: "— Jim Rohn",
-      footerText: "Made with ❤️ by Valeriia. Find me on:"
-    },
-    ru: {
-      intro: "Будущий программист и гордая гимнастка. Живу в Германии, мечтаю о большом.",
-      aboutTitle: "Обо мне",
-      aboutText1: "Я Валерия, но вы, наверное, знаете меня как <strong><em>@qqkaleriia</em></strong>. Я начала учить HTML и CSS в 12 лет летом и полюбила технологии. Сейчас живу в Германии, усердно учу немецкий и английский (цель — C1–C2). Я уже свободно говорю по-русски и по-украински.",
-      aboutText2: "Занималась художественной гимнастикой 10 лет и очень благодарна своим тренерам — они дали мне дисциплину и любовь к спорту. Сейчас я провожу время с замечательными друзьями и расту как личность. В прошлом были ошибки, но я учусь, развиваюсь и становлюсь лучше 💪",
-      galleryTitle: "Галерея",
-      quoteText: "«Дисциплина — мост между целями и достижениями.»",
-      quoteAuthor: "— Джим Рон",
-      footerText: "Сделано с ❤️ Валерией. Найдите меня в соцсетях:"
+const noBtn = document.getElementById("noBtn");
+const yesBtn = document.getElementById("yesBtn");
+const loveScreen = document.getElementById("loveScreen");
+const musicPlayer = document.getElementById("musicPlayer");
+
+let noClickCount = 0;
+
+noBtn.addEventListener("click", () => {
+    noClickCount++;
+    if (noClickCount < 4) {
+        const x = Math.random() * 200 - 100;
+        const y = Math.random() * 200 - 100;
+        noBtn.style.transform = `translate(${x}px, ${y}px)`;
+        noBtn.textContent = ["Уверен?", "Точно?", "Подумай ещё раз"][noClickCount - 1];
+    } else {
+        noBtn.style.display = "none";
     }
-  };
+});
 
-  const langToggleBtn = document.getElementById('lang-toggle');
-  let currentLang = 'en';
+yesBtn.addEventListener("click", () => {
+    document.getElementById("main").style.display = "none";
+    loveScreen.style.display = "flex";
+    createHearts();
 
-  function setLanguage(lang) {
-    currentLang = lang;
-    document.getElementById('intro-text').innerHTML = texts[lang].intro;
-    document.getElementById('about-title').textContent = texts[lang].aboutTitle;
-    document.getElementById('about-text').innerHTML = texts[lang].aboutText1;
-    document.getElementById('about-text2').innerHTML = texts[lang].aboutText2;
-    document.getElementById('gallery-title').textContent = texts[lang].galleryTitle;
-    document.getElementById('quote-text').textContent = texts[lang].quoteText;
-    document.getElementById('quote-author').textContent = texts[lang].quoteAuthor;
-    document.getElementById('footer-text').textContent = texts[lang].footerText;
-  }
+    // Включаем музыку только после нажатия "Да"
+    musicPlayer.src = "https://www.youtube.com/embed/-3aoH1-_i6g?autoplay=1&loop=1&playlist=-3aoH1-_i6g";
+});
 
-  langToggleBtn.addEventListener('click', () => {
-    setLanguage(currentLang === 'en' ? 'ru' : 'en');
-    // Меняем иконку языка на кнопке
-    langToggleBtn.textContent = currentLang === 'en' ? 'RU' : 'EN';
-  });
+function createHearts() {
+    setInterval(() => {
+        const heart = document.createElement("div");
+        heart.classList.add("heart");
+        heart.innerHTML = "❤️";
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.fontSize = (15 + Math.random() * 20) + "px";
+        document.body.appendChild(heart);
 
-  // Начальная инициализация
-  setLanguage('en');
+        setTimeout(() => heart.remove(), 5000);
+    }, 300);
+}
 </script>
 
 </body>
